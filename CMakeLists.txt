@@ -6,9 +6,9 @@ project(Cynthia_perception)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_REQUIRED_INCLUDES unistd.h)
-message(STATUS "The value of the TERM environment variable is:" $env{HOME})
+
 function(check_term_for_256color)
-    set(TERM_VAR_OUTPUT $env{TERM})
+    set(TERM_VAR_OUTPUT $ENV{TERM})
     message("${TERM_VAR_OUTPUT}")
     if(TERM_VAR_OUTPUT STREQUAL "xterm-256color")
         message(STATUS "VT100 support detected")
@@ -21,7 +21,6 @@ endfunction()
 
 check_term_for_256color()
 if(terminal_vt100)
-    message(STATUS "${terminal_vt100}")
     message(STATUS "Building with 256 color support")
 else()
     message(STATUS "Building without 256 color support")
@@ -33,10 +32,12 @@ find_package(glfw3 REQUIRED)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(/usr/X11/include)
 include_directories(Dependencies/sb7/sb7code/include)
+include_directories(Dependencies/meta-template-algorithms/metatemplate-algorithms/include)
+
 
 add_executable(Cynthia_perception
-        include/cynthia-perception/hello-world.cpp
-        src/hello2.cpp include/graphics/application.h src/glad.c)
+        include/cynthia-perception/core.h
+        src/testCode.cpp src/window.cpp src/glad.c)
 
 
 target_link_libraries(Cynthia_perception
@@ -46,9 +47,10 @@ target_link_libraries(Cynthia_perception
         )
 
 target_compile_definitions(Cynthia_perception
-        PUBLIC GL_SILENCE_DEPRECATION)
+        PUBLIC GL_SILENCE_DEPRECATION
+        CYNTHIA_USE_VT100) # TODO VT100 MUST FIX
 
-if(res)
-    target_compile_definitions(Cynthia_perception
-            PUBLIC CYNTHIA_USE_VT100)
-endif()
+#if(res)
+#    target_compile_definitions(Cynthia_perception
+#           PUBLIC CYNTHIA_USE_VT100)
+#endif()
