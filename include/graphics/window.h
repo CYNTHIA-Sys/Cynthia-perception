@@ -43,6 +43,7 @@ namespace cy {
             configs.emplace_back(config);
         }
     private:
+
         using ConfigFunc = void (*)();
         const char* window_title;
         int width;

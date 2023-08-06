@@ -18,6 +18,7 @@ char cy::mat::create_window() {
     _window = glfwCreateWindow(width, height, window_title, NULL, NULL);
     if (_window == NULL) {
         std::cout << t_red << "Failed to create GLFW window" << t_normal << std::endl;
+
         glfwTerminate();
         return 0;
     }
