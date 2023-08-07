@@ -31,13 +31,22 @@ find_package(glfw3 REQUIRED)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(/usr/X11/include)
-include_directories(Dependencies/sb7/sb7code/include)
-include_directories(Dependencies/meta-template-algorithms/metatemplate-algorithms/include)
+include_directories(Dependencies)
+include_directories(Dependencies/cute/include)
+
 
 
 add_executable(Cynthia_perception
         include/cynthia-perception/core.h
-        src/testCode.cpp src/window.cpp src/glad.c)
+        src/testCode.cpp
+        src/window.cpp src/glad.c
+        Dependencies/imgui/imgui.cpp
+        Dependencies/imgui/backends/imgui_impl_glfw.cpp
+        Dependencies/imgui/backends/imgui_impl_opengl3.cpp
+        Dependencies/imgui/imgui_widgets.cpp
+        Dependencies/imgui/imgui_tables.cpp
+        Dependencies/imgui/imgui_draw.cpp
+        Dependencies/imgui/imgui_demo.cpp)
 
 
 target_link_libraries(Cynthia_perception
