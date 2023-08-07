@@ -32,6 +32,7 @@ find_package(glfw3 REQUIRED)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(/usr/X11/include)
 include_directories(Dependencies)
+include_directories(Dependencies/imgui)
 include_directories(Dependencies/cute/include)
 
 
