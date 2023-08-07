@@ -15,7 +15,7 @@
 namespace cy {
     class mat {
     public:
-        mat(const char* _window_title, int _width, int _height) :
+        mat(const char* _window_title = "Hello, World!", int _width = 800, int _height = 600) :
         window_title(_window_title), width(_width), height(_height) {}
 
         void window_configure(cute::State state, cute::Option option);
@@ -25,7 +25,7 @@ namespace cy {
         {
             (std::get<Idx>(configs)(),...);
         }
-        int run();
+        int show_im();
 
 
         char create_window();
@@ -34,7 +34,9 @@ namespace cy {
     private:
         static void framebuffer_size_callback(GLFWwindow *window, int width, int height) { glViewport(0, 0, width, height); }
 
-        void process_input(GLFWwindow *window) {
+#define PROCES_INCPUT process_input
+        void process_input(GLFWwindow *window)
+        {
             if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
                 glfwSetWindowShouldClose(window, true);
         }

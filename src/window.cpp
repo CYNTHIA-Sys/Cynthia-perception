@@ -31,7 +31,7 @@ char cy::mat::create_window() {
     glfwSetFramebufferSizeCallback(_window, framebuffer_size_callback);
     return 1;
 }
-int cy::mat::run() 
+int cy::mat::show_im()
 {
     while (!glfwWindowShouldClose(_window)) {
         cy::mat::call_configs(cy::mat::get_num_configs());
@@ -42,7 +42,7 @@ int cy::mat::run()
     return 0;
 }
 
-void cy::mat::window_configure(cute::State state, cute::Option option)
-{
-
-}
+//void cy::mat::window_configure(void (*funcptr)(), cute::Option option)
+//{
+//
+//}
