@@ -3,7 +3,5 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Dependencies/imgui" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Dependencies/meta-template-algorithms/metatemplate-algorithms" vcs="" />
-    <mapping directory="$PROJECT_DIR$/Dependencies/sb7/sb7code" vcs="Git" />
   </component>
 </project>
