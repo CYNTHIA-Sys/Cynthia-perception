@@ -10,25 +10,25 @@ set(CMAKE_REQUIRED_INCLUDES unistd.h)
 function(check_term_for_256color)
     set(TERM_VAR_OUTPUT $ENV{TERM})
     message("${TERM_VAR_OUTPUT}")
-    if(TERM_VAR_OUTPUT STREQUAL "xterm-256color")
+    if (TERM_VAR_OUTPUT STREQUAL "xterm-256color")
         message(STATUS "VT100 support detected")
         set(terminal_vt100 1)
-    else()
+    else ()
         message(STATUS "No VT100 support")
         set(terminal_vt100 0)
-    endif()
+    endif ()
 endfunction()
 
 check_term_for_256color()
-if(terminal_vt100)
+if (terminal_vt100)
     message(STATUS "Building with 256 color support")
-else()
+else ()
     message(STATUS "Building without 256 color support")
-endif()
+endif ()
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
-
+add_subdirectory(Dependencies/eigen)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(/usr/X11/include)
 include_directories(Dependencies)
@@ -36,10 +36,9 @@ include_directories(Dependencies/imgui)
 include_directories(Dependencies/cute/include)
 
 
-
 add_executable(Cynthia_perception
         include/cynthia-perception/core.h
-        src/testCode.cpp
+        src/testCode2.cpp
         src/window.cpp src/glad.c
         Dependencies/imgui/imgui.cpp
         Dependencies/imgui/backends/imgui_impl_glfw.cpp

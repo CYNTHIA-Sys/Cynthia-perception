@@ -16,7 +16,7 @@
 #include <string>
 
 
-//#define ERROR_EXIT( str ) do {fprintf(stderr, str); exit(1);}while(0)
+#define ERROR_EXIT( str ) do {fprintf(stderr, str); exit(1);}while(0)
 //#define JPEG 0xFFD8
 //#define GIF 0x47494638
 //#define PNG 0x89504E47

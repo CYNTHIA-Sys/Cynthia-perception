@@ -143,10 +143,10 @@ int main ( int ,
 	ImGui_ImplOpenGL3_Init( "#version 400" );
 	ImGui::StyleColorsDark();
 	
-	Image  img;
-	ImVec2 dim( img.width , img.height );
-	ImVec4 clear_color = ImColor( 144 , 144 , 154 );
-	int    x           = 0;
+	cy::Image img;
+	ImVec2    dim( img.width , img.height );
+	ImVec4    clear_color = ImColor( 144 , 144 , 154 );
+	int       x           = 0;
 	while ( !glfwWindowShouldClose( window ) )
 	{
 		glfwPollEvents();
@@ -154,25 +154,43 @@ int main ( int ,
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 		
-		ImGui::Begin( "Slider Window" );
-		if ( img.texture_loaded )
-			ImGui::Image( ( void* ) img.texture , ImVec2( img.width , img.height ) );
+		//		ImGui::Begin( "Slider Window" );
+		//		if ( img.texture_loaded )
+		//			ImGui::Image( ( void* ) img.texture , ImVec2( img.width , img.height ) );
+		//		std::string tmp = "";
+		//		if ( ImGui::Button( "Select Image" ) )
+		//		{
+		//			ImGui::OpenPopup( "select-0" );
+		//			tmp = "/users/samer.ali/images/lena.jpg";
+		//		}
+		//
+		//
+		//
+		//		if ( tmp != "" )
+		//		{
+		//			im_load( &img , tmp.c_str() , 4 );
+		//			//			im_release( &img );
+		//		}
+		//		ImGui::End();
+		//		ImGui::Begin( "Slider Window 2" );
+		//		if ( img.texture_loaded )
+		//			ImGui::Image( ( void* ) img.texture , ImVec2( img.width , img.height ) );
+		//		std::string tmp2 = "";
+		//		if ( ImGui::Button( "Select Image" ) )
+		//		{
+		//			ImGui::OpenPopup( "select-0" );
+		//			tmp2 = "/users/samer.ali/images/lena.jpg";
+		//		}
+		//
+		//
+		//
+		//		if ( tmp2 != "" )
+		//		{
+		//			im_load( &img , tmp2.c_str() , 4 );
+		//			//			im_release( &img );
+		//		}
+		//		ImGui::End();
 		
-		if ( ImGui::Button( "Select Image" ) )
-		{
-			ImGui::OpenPopup( "select-0" );
-		}
-		
-		std::string tmp = image_select( 0 );
-		
-		if ( tmp != "" )
-		{
-			load_image( &img , tmp.c_str() );
-			//			free_image( &img );
-		}
-		
-		
-		ImGui::End();
 		
 		int display_w , display_h;
 		glfwGetFramebufferSize( window , &display_w , &display_h );
